@@ -1,0 +1,184 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:200,400,600&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+:root {
+  /* Primary style */
+  --Red: hsl(0, 78%, 62%);
+  --Cyan: hsl(180, 62%, 55%);
+  --Orange: hsl(34, 97%, 64%);
+  --Blue: hsl(212, 86%, 64%);
+
+  /* Neutral style*/
+
+  --Very-Dark-Blue: hsl(234, 12%, 34%);
+  --Grayish-Blue: hsl(229, 6%, 66%);
+  --Very-Light-Gray: hsl(0, 0%, 98%);
+
+  /* sizing */
+  --Font-size: 15px;
+  --Light-weight: 200;
+  --Normal-weight: 400;
+  --Bold-weight: 600;
+}
+
+body {
+  width: 100vw;
+  /* height: 100vh; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  font-family: "Poppins";
+  font-size: var(--Font-size);
+}
+
+header {
+  width: 330px;
+  height: max-content;
+  text-align: center;
+  margin-top: 1.2rem;
+}
+
+main {
+  width: 300px;
+  height: 100%;
+  text-align: center;
+  margin: 45px 0;
+}
+
+#secondary_h {
+  font-weight: var(--Light-weight);
+  color: var(--Very-Dark-Blue);
+}
+
+#main_h {
+  font-weight: var(--Bold-weight);
+  word-spacing: 10px;
+}
+
+#desc_h {
+  font-weight: var(--Light-weight);
+  padding: 0 20px;
+  text-align: center;
+  text-justify: inter-word;
+  color: var(--Grayish-Blue);
+}
+
+.card {
+  width: 300px;
+  border-radius: 5px;
+  text-align: left;
+  padding: 20px 30px;
+  margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 5px 15px -7px var(--Grayish-Blue),
+    0 10px 10px -5px var(--Grayish-Blue);
+}
+
+.card.supervisor {
+  border-top: 5px solid var(--Cyan);
+}
+
+.card.team-builder {
+  border-top: 5px solid var(--Red);
+}
+
+.card.karma {
+  border-top: 5px solid var(--Orange);
+}
+
+.card.calculator {
+  border-top: 5px solid var(--Blue);
+}
+
+.card p {
+  color: var(--Grayish-Blue);
+  font-weight: var(--Light-weight);
+  margin-top: 10px;
+}
+
+.card img {
+  width: 64px;
+  align-self: flex-end;
+  justify-self: flex-start;
+  margin-top: 2rem;
+}
+
+@media (min-width: 800px) {
+  body {
+    width: 100%;
+    align-items: center;
+    justify-content: baseline;
+    font-size: calc(var(--Font-size) + 3px);
+  }
+  header {
+    width: 100%;
+  }
+
+  main {
+    width: max-content;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-areas:
+      "supervisor team"
+      "karma calc";
+    align-items: center;
+    justify-items: center;
+  }
+
+  .card {
+    margin: 1rem;
+    width: 350px;
+  }
+  .card.supervisor {
+    grid-area: supervisor;
+  }
+
+  .card.team-builder {
+    grid-area: team;
+    padding: 20px;
+  }
+
+  .card.karma {
+    grid-area: karma;
+  }
+
+  .card.calculator {
+    grid-area: calc;
+  }
+
+  #desc_h {
+    width: 55%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media (min-width: 900px) {
+  #desc_h {
+    width: 65%;
+  }
+}
+
+@media (min-width: 950px) {
+  #desc_h {
+    width: 55%;
+  }
+}
+
+@media (min-width: 1140px) {
+  main {
+    grid-template-areas:
+      "supervisor team calc"
+      "supervisor karma calc";
+  }
+  .card.team-builder {
+    grid-area: team;
+    margin-top: 0;
+  }
+}
